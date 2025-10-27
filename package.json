@@ -9,13 +9,24 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module" 
+  ,
   "dependencies": {
     "@tailwindcss/cli": "^4.1.14",
     "dotenv": "^17.2.3",
+    "express": "^5.1.0",
     "pg": "^8.16.3",
     "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniGRocha/plataform_tech.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ViniGRocha/plataform_tech/issues"
+  },
+  "homepage": "https://github.com/ViniGRocha/plataform_tech#readme"
 }
