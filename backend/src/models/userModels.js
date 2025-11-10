@@ -24,6 +24,8 @@ export const updateUser = async (id, nome, email, senha_hash) => {
     return result.rows[0];
 }
 
+
+//Criando uma função que deleta um usuario do banco de dados utilizando o parametro id.
 export const deleteUser = async (id) => {
     await pool.query ("DELETE FROM usuarios WHERE id = $1", [id]);
 };
