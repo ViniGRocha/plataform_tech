@@ -1,0 +1,214 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* FUNDO PREMIUM */
+body {
+  background: radial-gradient(circle at top, #c9b3ff, #f3ecff, #fff);
+  min-height: 100vh;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* HEADER DESTACADO */
+.header {
+  width: 100%;
+  max-width: 1100px;
+  margin: 25px auto 10px;
+  padding: 10px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 800;
+  color: #4b3ca5;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.logo-circle {
+  background: linear-gradient(145deg, #8f5cff, #b796ff);
+  color: white;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+
+/* CONTAINER PREMIUM */
+.container {
+  background: white;
+  width: 100%;
+  max-width: 820px;
+
+  margin: 0 auto;
+  padding: 38px;
+
+  border-radius: 26px;
+  box-shadow: 0px 12px 35px rgba(70, 0, 140, 0.15);
+}
+
+/* TÍTULOS */
+.page-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #442a97;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  color: #6c5e9d;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+/* PROGRESSO */
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5f4bc4;
+}
+
+.progress-container {
+  width: 100%;
+  background: #e1d3ff;
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 0%;
+  transition: width .3s ease;
+  background: linear-gradient(90deg, #7f4aff, #b387ff);
+}
+
+/* CARD GLASSMODERN */
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  box-shadow: 0px 8px 28px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 28px;
+}
+
+/* OPÇÕES (mantendo os DOIS radios, mas lindos) */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #f6edff;
+  border: 2px solid transparent;
+
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 14px;
+
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.option:hover {
+  background: #efe2ff;
+  border-color: #d4b8ff;
+}
+
+.option.selected {
+  background: #e8d6ff;
+  border-color: #8f5cff;
+}
+
+/* RADIO NATIVO (deixar alinhado e bonito) */
+.option input[type="radio"] {
+  transform: scale(1.2);
+  accent-color: #8f5cff;
+}
+
+/* RADIO CUSTOMIZADO (o roxinho) */
+.radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #8f5cff;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: bold;
+  color: #8f5cff;
+}
+
+/* TEXTO */
+.text {
+  color: #4b3ca5;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* BOTÕES */
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 13px 22px;
+  cursor: pointer;
+  transition: all .25s ease;
+  font-size: 15px;
+}
+
+.btn.primary {
+  background: linear-gradient(145deg, #8f5cff, #7a4cf1);
+  color: white;
+  font-weight: 600;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(143, 92, 255, 0.4);
+}
+
+.btn.secondary {
+  background: #e3d8ff;
+  color: #4b3ca5;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 25px;
+  color: #6c5e9d;
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 14px;
+}
