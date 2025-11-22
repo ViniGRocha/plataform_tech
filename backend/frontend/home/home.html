@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechPath - Descubra sua trilha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tech-bg': '#F3F0FF',
+                        'tech-primary': '#9333ea',
+                        'purple-soft': '#EEE8FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+
+                    /* 🔥 ANIMAÇÕES CONTÍNUAS E DE SAÍDA */
+                    keyframes: {
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-6px)" }
+                        },
+                        pulseSoft: {
+                            "0%, 100%": { transform: "scale(1)" },
+                            "50%": { transform: "scale(1.03)" }
+                        },
+                        softGlow: {
+                            "0%, 100%": { opacity: 1 },
+                            "50%": { opacity: 0.85 }
+                        },
+                        fadeOut: {
+                            "0%": { opacity: 1, transform: "scale(1)" },
+                            "100%": { opacity: 0, transform: "scale(0.97)" }
+                        }
+                    },
+                    animation: {
+                        float: "float 4s ease-in-out infinite",
+                        pulseSoft: "pulseSoft 3s ease-in-out infinite",
+                        softGlow: "softGlow 6s ease-in-out infinite",
+                        fadeOut: "fadeOut 0.4s ease-out forwards"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-tech-bg min-h-screen font-sans">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-semibold text-tech-primary">TechPath</span>
+
+            <a href="../login/login.html"
+               class="text-gray-700 hover:text-tech-primary font-medium transition">
+                Entrar
+            </a>
+        </div>
+    </header>
+
+    <!-- SEÇÃO PRINCIPAL -->
+    <main class="max-w-5xl mx-auto px-6 py-20 text-center">
+
+        <!-- TITULO COM ANIMAÇÃO FLOAT -->
+        <h1 class="text-4xl md:text-5xl font-bold text-tech-primary mb-4 animate-float">
+            Descubra sua trilha na tecnologia
+        </h1>
+
+        <!-- TEXTO COM ANIMAÇÃO DE OPACIDADE SUAVE -->
+        <p class="text-gray-700 text-lg max-w-2xl mx-auto mb-10 animate-softGlow">
+            Responda 6 perguntas rápidas e receba uma recomendação personalizada
+            da área de tecnologia que mais combina com o seu perfil.
+        </p>
+
+        <!-- BOTÃO COM PULSAÇÃO LEVE -->
+        <button id="btn-start"
+            class="px-10 py-4 bg-tech-primary text-white text-lg rounded-xl shadow 
+                   transform transition-all duration-300 hover:bg-purple-800 animate-pulseSoft">
+            Iniciar
+        </button>
+
+    </main>
+
+    <footer class="text-center text-gray-500 text-sm mt-20 pb-6 animate-softGlow">
+        © 2025 TechPath — Todos os direitos reservados.
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+
+</html>

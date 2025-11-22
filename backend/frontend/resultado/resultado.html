@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado - TechPath</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tech-bg': '#F3F0FF',
+                        'tech-primary': '#9333ea',
+                        'purple-soft': '#EEE8FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-tech-bg min-h-screen font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-semibold text-tech-primary">TechPath</span>
+
+            <div class="space-x-3">
+                <a href="../quiz/quiz.html"
+                    class="px-4 py-2 bg-purple-100 text-tech-primary rounded-lg hover:bg-purple-200 transition">
+                    Refazer Quiz
+                </a>
+
+                <button onclick="logout()"
+                    class="px-4 py-2 bg-purple-100 text-gray-700 rounded-lg hover:bg-purple-200 transition">
+                    Sair
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="max-w-5xl mx-auto px-6 py-10">
+
+        <div class="text-center mb-10">
+            <span class="px-4 py-1 bg-white text-tech-primary rounded-full text-sm font-medium shadow">
+                Sua Trilha Recomendada
+            </span>
+
+            <h1 id="titulo-trilha" class="text-4xl font-bold text-tech-primary mt-3"></h1>
+
+            <p id="descricao-trilha" class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg"></p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid lg:grid-cols-2 gap-6 mb-10">
+
+            <!-- Faixa Salarial -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <div class="flex items-center mb-3">
+                    <span class="text-tech-primary text-2xl mr-3">💰</span>
+                    <div>
+                        <h3 class="text-lg font-semibold">Faixa Salarial</h3>
+                        <p class="text-sm text-gray-500">Mercado brasileiro</p>
+                    </div>
+                </div>
+
+                <p id="faixa-salarial" class="text-2xl font-bold text-tech-primary"></p>
+            </div>
+
+            <!-- Demanda do Mercado -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <div class="flex items-center mb-3">
+                    <span class="text-tech-primary text-2xl mr-3">📈</span>
+                    <div>
+                        <h3 class="text-lg font-semibold">Demanda no Mercado</h3>
+                        <p class="text-sm text-gray-500">Procura por profissionais</p>
+                    </div>
+                </div>
+
+                <span id="demanda"
+                    class="px-4 py-1 text-white text-sm font-semibold rounded-full"></span>
+            </div>
+        </div>
+
+        <!-- Habilidades Essenciais -->
+        <div class="bg-white p-6 rounded-xl shadow mb-10">
+            <h3 class="text-xl font-semibold mb-2 flex items-center">
+                <span class="text-tech-primary text-2xl mr-3">💡</span>
+                Habilidades Essenciais
+            </h3>
+
+            <div id="habilidades" class="flex flex-wrap gap-2 mt-3"></div>
+        </div>
+
+        <!-- Tecnologias Principais -->
+        <div class="bg-white p-6 rounded-xl shadow mb-10">
+            <h3 class="text-xl font-semibold mb-2 flex items-center">
+                <span class="text-tech-primary text-2xl mr-3">💻</span>
+                Tecnologias Principais
+            </h3>
+
+            <div id="tecnologias" class="flex flex-wrap gap-2 mt-3"></div>
+        </div>
+
+        <!-- Trilha de Aprendizado -->
+        <div class="bg-white p-6 rounded-xl shadow mb-10">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <span class="text-tech-primary text-2xl mr-3">📚</span>
+                Trilha de Aprendizado
+            </h3>
+
+            <ol id="trilha-passos" class="space-y-3"></ol>
+        </div>
+
+        <div class="text-center mt-8">
+            <a href="../quiz/quiz.html"
+                class="px-6 py-3 bg-purple-100 text-tech-primary rounded-lg hover:bg-purple-200 transition">
+                ← Fazer quiz novamente
+            </a>
+        </div>
+
+    </main>
+
+    <script src="resultado.js"></script>
+</body>
+</html>
