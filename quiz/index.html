@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trilhas do Futuro</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo-circle">TF</div>
+      <span>Trilhas do Futuro</span>
+    </div>
+
+    <button class="btn secondary small" style="margin-right:10px;">Sair</button>
+  </header>
+
+  <!-- CONTAINER -->
+  <main class="container animate-fade">
+
+    <h2 class="page-title">Descubra sua Trilha do Futuro na Tecnologia</h2>
+    <p class="page-subtitle">
+      Responda 6 perguntas para identificar qual trilha combina mais com você.
+    </p>
+
+    <div class="progress-info">
+      <span id="progressText">Pergunta 1 de 6</span>
+      <span id="progressPercent">0%</span>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <section id="questionPanel" class="question-card glass-card">
+      <h3 id="questionTitle">Carregando...</h3>
+      <div id="options"></div>
+
+      <div class="buttons">
+        <button id="prevBtn" class="btn secondary">← Anterior</button>
+        <button id="nextBtn" class="btn primary">Próxima →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2025 — Trilhas do Futuro
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
