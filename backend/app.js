@@ -6,26 +6,26 @@ const app = express();
 const PORT = 3000;
 const __dirname = path.resolve();
 
-// Middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Middlewares - usado para ler o body das requisições
+app.use(express.json()); // para JSON
+app.use(express.urlencoded({ extended: true })); // para form data (html)
 
-// Servir a pasta frontend fora do backend
+
+// Servir a pasta frontend fora do backend 
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 
 // Rotas do site web
 
-//HOME
+//HOME (tela inicial)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend/home/home.html'));
+  res.sendFile(path.join(__dirname, '..', 'frontend/home/home.html')); //pega o arquvio fisico do html para o navegador.
 });
 
 //CADASTRO (REGISTRO)
 app.get('/registro', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend/registro/registro.html'));
+  res.sendFile(path.join(__dirname, '..', 'frontend/registro/registro.html')); //pega o arquivo fisico do html para o navegador 
 });
-
 
 //LOGIN
 app.get('/login', (req, res) => {
@@ -39,26 +39,24 @@ app.get('/quiz', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend/quizweb/quiz.html'));
 })
 
-
-
-
 //RESULTADO
 app.get('/resultado', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend/resultado/resultado.html'));
 })
-
 
 //CHATBOT
 app.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend/Chatbot/chat.html'));
 })
 
+
+//Lógica do chatbot
 app.post('/api/chat/result', (req, res) => {
   const { conversation } = req.body;
 
   let score = {
     design: 0,
-    programacao: 0,
+    programacao: 0, 
     dados: 0,
     infraestrutura: 0
   };
@@ -105,7 +103,7 @@ app.post('/api/chat/result', (req, res) => {
 
 
 // Rotas da API
-app.use('/api/usuarios', userRouter);
+app.use('/api/usuarios', userRouter); //criaro para as rotas de usuário (registro, login, etc).
 
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); // Inicia o servidor na porta 3000

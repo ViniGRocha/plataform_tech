@@ -1,20 +1,6 @@
 import * as User from '../models/userModels.js';
 import bcrypt from 'bcrypt';
 
-// Listar usuários
-export const getUsers = async (req, res) => {
-    try {
-        const users = await User.getAllUsers();
-        const usersSafe = users.map(u => ({
-            id: u.id,
-            nome: u.nome,
-            email: u.email
-        }));
-        res.json(usersSafe);
-    } catch (err) {
-        res.status(500).json({ error: "Erro ao buscar usuários" });
-    }
-};
 
 // Criar usuário
 export const createUser = async (req, res) => {
@@ -44,10 +30,10 @@ export const loginUser = async (req, res) => {
     const { email, senha } = req.body;
 
     try {
-        const users = await User.getUserByEmail(email);
+        const users = await User.getUserByEmail(email); // chama a função do model para buscar o email fornecido
 
         if (users.length === 0) {
-            return res.status(401).json({ message: "Usuário não encontrado" });
+            return res.status(401).json({ message: "Usuário não encontrado" }); //se não encontrar, retorna erro
         }
 
         const usuario = users[0];
