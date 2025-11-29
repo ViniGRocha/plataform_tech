@@ -105,6 +105,7 @@ app.post('/api/chat/result', (req, res) => {
 
 
 // Rotas da API
-app.use('/usuarios', userRouter);
+app.use('/api/usuarios', userRouter);
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

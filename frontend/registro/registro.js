@@ -1,5 +1,4 @@
-// Envio do formulário de registro
-document.getElementById("registerForm").addEventListener("submit", function (e) {
+document.getElementById("registerForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value;
@@ -17,28 +16,39 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
         return;
     }
 
-    // Exibir mensagem elegante
-    const msgBox = document.getElementById("success-message");
-    msgBox.classList.remove("hidden");
-    msgBox.classList.add("animate-fadeIn");
+    // 🔥 Enviar para o backend
+    try {
+        const response = await fetch("http://localhost:3000/api/usuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ nome, email, senha })
+        });
 
-    msgBox.querySelector("p").innerText = "Conta criada com sucesso! Redirecionando...";
+        const data = await response.json();
 
-    // Animação e transição
-    setTimeout(() => {
-        document.body.classList.add("animate-fadeOut");
+        if (!response.ok) {
+            alert(data.message || "Erro ao criar conta");
+            return;
+        }
+
+        // 🎉 Sucesso → Mostrar mensagem elegante
+        const msgBox = document.getElementById("success-message");
+        msgBox.classList.remove("hidden");
+        msgBox.classList.add("animate-fadeIn");
+
+        msgBox.querySelector("p").innerText = "Conta criada com sucesso! Redirecionando...";
+
         setTimeout(() => {
-            window.location.href = "/login";
-        }, 350);
-    }, 1200); // tempo da mensagem antes da saída
-});
+            document.body.classList.add("animate-fadeOut");
+            setTimeout(() => {
+                window.location.href = "/login";
+            }, 350);
+        }, 1200);
 
-
-// 🔄 Efeito suave: registro → login
-document.getElementById("go-login").addEventListener("click", () => {
-    document.body.classList.add("animate-fadeOut");
-
-    setTimeout(() => {
-        window.location.href = "/login";
-    }, 350);
+    } catch (error) {
+        console.error("Erro:", error);
+        alert("Erro ao conectar ao servidor");
+    }
 });

@@ -12,7 +12,16 @@ export const createUser = async (nome, email, senha_hash) => {
         "INSERT INTO usuarios (nome, email, senha_hash) VALUES ($1, $2, $3) RETURNING *",
         [nome, email, senha_hash]
     );
-    return result.rows[0]; // ⚠️ importante retornar o usuário criado
+    return result.rows[0];
+};
+
+// Buscar usuário por email (ESSENCIAL PARA LOGIN)
+export const getUserByEmail = async (email) => {
+    const result = await pool.query(
+        "SELECT * FROM usuarios WHERE email = $1",
+        [email]
+    );
+    return result.rows;
 };
 
 // Atualizar usuário
@@ -34,6 +43,9 @@ export const updateUser = async (id, nome, email, senha_hash) => {
 
 // Deletar usuário
 export const deleteUser = async (id) => {
-    const result = await pool.query("DELETE FROM usuarios WHERE id = $1 RETURNING *", [id]);
-    return result.rows[0]; // retorna usuário deletado, se existir
+    const result = await pool.query(
+        "DELETE FROM usuarios WHERE id = $1 RETURNING *",
+        [id]
+    );
+    return result.rows[0];
 };

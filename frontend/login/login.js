@@ -1,33 +1,29 @@
-// Botão de login
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+document.getElementById("loginForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    if (!email || !senha) {
-        alert("Preencha todos os campos!");
+    const response = await fetch('/api/usuarios/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        alert(data.message || "Login inválido");
         return;
     }
 
-    // Simula login
-    localStorage.setItem("user", JSON.stringify({ email }));
+    // Salvando dados no navegador
+    localStorage.setItem("user", JSON.stringify(data.user));
 
-    // Animação suave antes de ir para o quiz
+    // Animação antes de ir para a HOME
     document.body.classList.add("animate-fadeOut");
 
     setTimeout(() => {
-        window.location.href = "/quiz";
+        window.location.href = "/quiz"; // ou /home
     }, 350);
 });
-
-
-// 💜 Efeito para ir para tela de registro
-document.getElementById("go-register").addEventListener("click", () => {
-    document.body.classList.add("animate-fadeOut");
-
-    setTimeout(() => {
-        window.location.href = "/quiz";
-    }, 350);
-});
-
